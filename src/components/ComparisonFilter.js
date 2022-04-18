@@ -7,6 +7,8 @@ const COMPARATORS = ['maior que', 'menor que', 'igual a'];
 
 function ComparisonFilter() {
   const { data, setFilterByNumericValues } = useContext(MyContext);
+
+  const [columns, setColumns] = useState(COLUMNS);
   const [selectedColumn, setSelectedColumn] = useState('population');
   const [selectedComparator, setSelectedComparator] = useState('maior que');
   const [selectedValue, setSelectedValue] = useState('0');
@@ -32,7 +34,8 @@ function ComparisonFilter() {
       ...prev,
       { column: selectedColumn, comparison: selectedComparator, value: selectedValue },
     ]);
-    setSelectedColumn('population');
+    setColumns((prev) => prev.filter((e) => e !== selectedColumn));
+    setSelectedColumn(columns[0]);
     setSelectedComparator('maior que');
     setSelectedValue('0');
   };
@@ -40,7 +43,7 @@ function ComparisonFilter() {
   if (data.length > 0) {
     return (
       <section>
-        {renderSelect(COLUMNS, 'column-filter', selectedColumn, setSelectedColumn)}
+        {renderSelect(columns, 'column-filter', selectedColumn, setSelectedColumn)}
         {renderSelect(COMPARATORS, 'comparison-filter', selectedComparator,
           setSelectedComparator)}
         <input

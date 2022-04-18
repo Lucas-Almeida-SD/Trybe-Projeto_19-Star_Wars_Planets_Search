@@ -57,6 +57,7 @@ const Provider = ({ children }) => {
     data,
     filteredData,
     filterByName,
+    filterByNumericValues,
     setFilterByName,
     setFilterByNumericValues,
   };
