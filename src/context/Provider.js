@@ -8,6 +8,7 @@ const Provider = ({ children }) => {
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -22,14 +23,43 @@ const Provider = ({ children }) => {
     getPlanets();
   }, [children]);
 
-  useEffect(() => {
-    const filterData = () => (
-      data.filter((e) => e.name.includes(filterByName))
-    );
-    setFilteredData(filterData());
-  }, [data, filterByName]);
+  const makeComparison = (e, index) => {
+    const { column, comparison, value } = filterByNumericValues[index];
+    if (comparison === 'maior que') {
+      return (parseInt(e[column], 10) > parseInt(value, 10));
+    }
+    if (comparison === 'menor que') {
+      return (parseInt(e[column], 10) < parseInt(value, 10));
+    }
+    return (parseInt(e[column], 10) === parseInt(value, 10));
+  };
 
-  const contextValue = { data, filteredData, filterByName, setFilterByName };
+  const filterByColumn = (newData) => {
+    let filterNewDataByColumn = newData.map((e) => e);
+    for (let index = 0; index < filterByNumericValues.length; index += 1) {
+      filterNewDataByColumn = filterNewDataByColumn.filter((e) => (
+        makeComparison(e, index)));
+    }
+    return filterNewDataByColumn;
+  };
+
+  useEffect(() => {
+    const filterData = () => {
+      let newData = data.filter((e) => e.name.includes(filterByName));
+      newData = filterByColumn(newData);
+      return newData;
+    };
+    setFilteredData(filterData());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, filterByName, filterByNumericValues]);
+
+  const contextValue = {
+    data,
+    filteredData,
+    filterByName,
+    setFilterByName,
+    setFilterByNumericValues,
+  };
 
   return (
     <MyContext.Provider value={ contextValue }>
