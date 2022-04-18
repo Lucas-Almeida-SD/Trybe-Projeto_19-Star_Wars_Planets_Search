@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import MyContext from '../context/MyContext';
 
 function Table() {
-  const { data } = useContext(MyContext);
+  const { data, filteredData } = useContext(MyContext);
 
   const renderTHead = (columnsName) => (
     <thead>
@@ -26,7 +26,7 @@ function Table() {
 
   const renderTBody = (columnsName) => (
     <tbody>
-      {data.map((line, index) => (
+      {filteredData.map((line, index) => (
         <tr key={ line.name }>
           {columnsName.map((column) => renderColumns(line, column, index))}
         </tr>
