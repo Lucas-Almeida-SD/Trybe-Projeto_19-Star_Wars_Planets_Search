@@ -6,8 +6,7 @@ const COLUMNS = ['population', 'orbital_period', 'diameter', 'rotation_period',
 const COMPARATORS = ['maior que', 'menor que', 'igual a'];
 
 function ComparisonFilter() {
-  const { data, setFilterByNumericValues } = useContext(MyContext);
-
+  const { data, filterByNumericValues, setFilterByNumericValues } = useContext(MyContext);
   const [columns, setColumns] = useState(COLUMNS);
   const [selectedColumn, setSelectedColumn] = useState('population');
   const [selectedComparator, setSelectedComparator] = useState('maior que');
@@ -34,10 +33,43 @@ function ComparisonFilter() {
       ...prev,
       { column: selectedColumn, comparison: selectedComparator, value: selectedValue },
     ]);
-    setColumns((prev) => prev.filter((e) => e !== selectedColumn));
-    setSelectedColumn(columns[0]);
+    const newColumns = columns.filter((e) => e !== selectedColumn);
+    setColumns(newColumns);
+    setSelectedColumn(newColumns[0]);
     setSelectedComparator('maior que');
     setSelectedValue('0');
+  };
+
+  // const filterColumns = () => {
+  //   const columnsKey = filterByNumericValues.map((e) => e.column);
+  //   return COLUMNS.filter((e) => !columnsKey.includes(e));
+  // };
+
+  const removeFilter = (column) => {
+    const newFilterByNumericValues = filterByNumericValues.filter((e) => (
+      e.column !== column
+    ));
+    setFilterByNumericValues(newFilterByNumericValues);
+    const newColumn = COLUMNS.filter((e) => [...columns, column].includes(e));
+    setColumns(newColumn);
+    setSelectedColumn(newColumn[0]);
+  };
+
+  const renderFilters = () => (
+    <div>
+      {filterByNumericValues.map(({ column, comparison, value }) => (
+        <div key={ column } data-testid="filter">
+          <p>{`${column} ${comparison} ${value}`}</p>
+          <button type="button" onClick={ () => removeFilter(column) }>X</button>
+        </div>
+      ))}
+    </div>
+  );
+
+  const removeAllFilters = () => {
+    setFilterByNumericValues([]);
+    setColumns(COLUMNS);
+    setSelectedColumn(COLUMNS[0]);
   };
 
   if (data.length > 0) {
@@ -59,6 +91,14 @@ function ComparisonFilter() {
         >
           Filtrar
         </button>
+        <button
+          type="button"
+          data-testid="button-remove-filters"
+          onClick={ removeAllFilters }
+        >
+          Remover todas filtragens
+        </button>
+        {renderFilters()}
       </section>
     );
   }
