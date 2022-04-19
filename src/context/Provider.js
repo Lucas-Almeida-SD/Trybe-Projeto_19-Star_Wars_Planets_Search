@@ -9,6 +9,21 @@ const Provider = ({ children }) => {
   const [filterByName, setFilterByName] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
+  const [order, setOrder] = useState({ column: undefined, sort: undefined });
+
+  const checkSort = (next, prev, checkNumberOrUnknown, ascendente) => {
+    let newNext = next; let newPrev = prev;
+    const negNumber1 = -1;
+    if (checkNumberOrUnknown) {
+      if (next === 'unknown') { return (ascendente) ? 1 : negNumber1; }
+      if (prev === 'unknown') { return (ascendente) ? negNumber1 : 1; }
+      newNext = parseInt(next, 10);
+      newPrev = parseInt(prev, 10);
+    }
+    if (newNext > newPrev) { return 1; }
+    if (newNext < newPrev) { return negNumber1; }
+    return 0;
+  };
 
   useEffect(() => {
     const getPlanets = async () => {
@@ -18,10 +33,12 @@ const Provider = ({ children }) => {
         delete e.residents;
         return e;
       });
+      newData.sort((next, prev) => checkSort(next.name, prev.name));
       setData(newData);
     };
     getPlanets();
-  }, [children]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const makeComparison = (e, index) => {
     const { column, comparison, value } = filterByNumericValues[index];
@@ -53,13 +70,33 @@ const Provider = ({ children }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, filterByName, filterByNumericValues]);
 
+  useEffect(() => {
+    const sortData = () => {
+      const newFilteredData = filteredData.map((e) => e); // apenas um clone do filteredData
+      const { column, sort } = order;
+      if (sort === 'ASC') {
+        newFilteredData.sort((next, prev) => (
+          checkSort(next[column], prev[column], true, true)));
+      } else {
+        newFilteredData.sort((next, prev) => checkSort(prev[column], next[column], true));
+      }
+      setFilteredData(newFilteredData);
+    };
+    if (order.column) {
+      sortData();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [order]);
+
   const contextValue = {
     data,
     filteredData,
     filterByName,
     filterByNumericValues,
+    order,
     setFilterByName,
     setFilterByNumericValues,
+    setOrder,
   };
 
   return (

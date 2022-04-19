@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ComparisonFilter from './components/ComparisonFilter';
 import Filter from './components/Filter';
+import OrderFilter from './components/OrderFilter';
 import Table from './components/Table';
 import Provider from './context/Provider';
 
@@ -12,6 +13,7 @@ function App() {
       <main>
         <Filter />
         <ComparisonFilter />
+        <OrderFilter />
         <Table />
       </main>
     </Provider>

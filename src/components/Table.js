@@ -12,23 +12,31 @@ function Table() {
     </thead>
   );
 
-  const renderColumns = (line, column, index) => {
+  const renderColumns = (line, column, lineIndex, colIndex) => {
     const columnData = line[column];
     if (Array.isArray(columnData)) {
       return (
-        <td key={ `${column}-${index}` }>
-          {columnData.map((e, i) => <p key={ `${column}-${index}-${i}` }>{e}</p>)}
+        <td key={ `${column}-${lineIndex}` }>
+          {columnData.map((e, i) => <p key={ `${column}-${lineIndex}-${i}` }>{e}</p>)}
         </td>
       );
     }
-    return <td key={ `${column}-${index}` }>{columnData}</td>;
+    return (
+      <td
+        key={ `${column}-${lineIndex}` }
+        data-testid={ (colIndex === 0) && 'planet-name' }
+      >
+        {columnData}
+      </td>
+    );
   };
 
   const renderTBody = (columnsName) => (
     <tbody>
-      {filteredData.map((line, index) => (
+      {filteredData.map((line, lineIndex) => (
         <tr key={ line.name }>
-          {columnsName.map((column) => renderColumns(line, column, index))}
+          {columnsName.map((column, colIndex) => (
+            renderColumns(line, column, lineIndex, colIndex)))}
         </tr>
       ))}
     </tbody>
