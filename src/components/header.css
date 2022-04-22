@@ -15,14 +15,12 @@ header h1 {
 }
 
 header .star-wars {
-
-  /* animation: neon1 1.5s ease-in-out infinite alternate; */
+  animation: neon1 1.5s ease-in-out infinite alternate;
   font-size: 48px;
 }
 
 header .planets-search {
-
-  /* animation: neon2 1.5s ease-in-out infinite alternate; */
+  animation: neon2 1.5s ease-in-out infinite alternate;
   font-size: 32px;
 }
 
@@ -39,7 +37,7 @@ header .starwars-run-robo {
 ( https://ggames.com.br/tutorials/article/73-efeito-neon-em-html-e-css/ )
  --> */
 
-/* @keyframes neon1 {
+@keyframes neon1 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF3939, 0 0
     70px #FF3939, 0 0 80px #FF3939, 0 0 100px #FF3939, 0 0 150px #FF3939;
@@ -59,7 +57,7 @@ header .starwars-run-robo {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #138703, 0 0
     35px #138703, 0 0 40px #138703, 0 0 50px #138703, 0 0 75px #138703;
   }
-} */
+}
 
 /* <-- */
 
@@ -81,7 +79,7 @@ header .starwars-run-robo {
     width: 50px;
   }
 
-  /* @keyframes neon1 {
+  @keyframes neon1 {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 30px #FF3939, 0 0
       60px #FF3939, 0 0 70px #FF3939, 0 0 90px #FF3939, 0 0 140px #FF3939;
@@ -101,7 +99,7 @@ header .starwars-run-robo {
       text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 10px #138703, 0 0
       25px #138703, 0 0 30px #138703, 0 0 40px #138703, 0 0 65px #138703;
     }
-  } */
+  }
 
 }
 
