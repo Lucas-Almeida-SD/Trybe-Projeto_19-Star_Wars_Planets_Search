@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/css/main.4fc17f92.chunk.css",
+    "main.js": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/js/main.d8860561.chunk.js",
+    "main.js.map": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/js/main.d8860561.chunk.js.map",
+    "runtime-main.js": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/js/runtime-main.a2faae1e.js",
+    "runtime-main.js.map": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/js/runtime-main.a2faae1e.js.map",
+    "static/js/2.477e8ed5.chunk.js": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/js/2.477e8ed5.chunk.js",
+    "static/js/2.477e8ed5.chunk.js.map": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/js/2.477e8ed5.chunk.js.map",
+    "index.html": "/Trybe-Projeto_19-Star_Wars_Planets_Search/index.html",
+    "precache-manifest.2b8596132a8e1a9b7ec5991f3f55d9ec.js": "/Trybe-Projeto_19-Star_Wars_Planets_Search/precache-manifest.2b8596132a8e1a9b7ec5991f3f55d9ec.js",
+    "service-worker.js": "/Trybe-Projeto_19-Star_Wars_Planets_Search/service-worker.js",
+    "static/css/main.4fc17f92.chunk.css.map": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/css/main.4fc17f92.chunk.css.map",
+    "static/js/2.477e8ed5.chunk.js.LICENSE.txt": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/js/2.477e8ed5.chunk.js.LICENSE.txt",
+    "static/media/lixeira.png": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/media/lixeira.111452ff.png",
+    "static/media/App.css": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/media/starwars-background.cae27644.png",
+    "static/media/starwars-fight.gif": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/media/starwars-fight.7e737fa8.gif",
+    "static/media/starwars-logo.gif": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/media/starwars-logo.a89ec600.gif",
+    "static/media/starwars-run-robo.gif": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/media/starwars-run-robo.fe9fa9f1.gif",
+    "static/media/wave-haikei(4).svg": "/Trybe-Projeto_19-Star_Wars_Planets_Search/static/media/wave-haikei(4).6ba45665.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a2faae1e.js",
+    "static/js/2.477e8ed5.chunk.js",
+    "static/css/main.4fc17f92.chunk.css",
+    "static/js/main.d8860561.chunk.js"
+  ]
+}
