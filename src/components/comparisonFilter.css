@@ -25,7 +25,7 @@
 }
 
 .comparison-filter-fields div label {
-  font-family: 'Acme', sans-serif;
+  font-family: Acme , sans-serif;
   font-size: 18px;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .comparison-filter-fields div select, .comparison-filter-fields div input {
-  font-family: 'Fuzzy Bubbles', cursive;
+  font-family: Fuzzy Bubbles , cursive;
   font-size: 16px;
 }
 
@@ -75,7 +75,7 @@
   border-radius: 4px;
   box-shadow: 0 0 4px black;
   cursor: no-drop;
-  font-family: 'Acme', sans-serif;
+  font-family: Acme , sans-serif;
   font-size: 18px;
   padding: 8px 24px;
 }
@@ -95,7 +95,7 @@
   border-radius: 4px;
   box-shadow: 0 0 4px black;
   display: flex;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: Josefin Sans , sans-serif;
   font-weight: 600;
   justify-content: center;
   margin: 8px;

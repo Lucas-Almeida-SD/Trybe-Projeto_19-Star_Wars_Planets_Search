@@ -22,17 +22,17 @@
 }
 
 .order-filter-section label {
-  font-family: 'Acme', sans-serif;
+  font-family: Acme , sans-serif;
   font-size: 18px;
 }
 
 .order-filter-section select {
-  font-family: 'Fuzzy Bubbles', cursive;
-  font-size: 16px;
-  font-weight: 100;
   background-color: white;
   border: 1px solid rgb(210, 210, 210);
   border-radius: 4px;
+  font-family: Fuzzy Bubbles , cursive;
+  font-size: 16px;
+  font-weight: 100;
   margin: 4px 0;
   outline: none;
   padding: 8px;
@@ -52,7 +52,7 @@
   border-radius: 4px;
   box-shadow: 0 0 4px black;
   cursor: no-drop;
-  font-family: 'Acme', sans-serif;
+  font-family: Acme , sans-serif;
   font-size: 18px;
   margin: 24px 0;
   padding: 8px 24px;
@@ -77,7 +77,7 @@
 
 @media screen and ( max-width : 480px ) {
 
-  .order-filter-section label, .order-filter-section button{
+  .order-filter-section label, .order-filter-section button {
     font-size: 14px;
   }
 

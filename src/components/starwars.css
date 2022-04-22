@@ -4,7 +4,7 @@
 }
 
 .error-message {
-  font-family: 'Fredoka One', cursive;
+  font-family: Fredoka One , cursive;
   font-weight: 100;
   margin: 80px;
   text-align: center;
@@ -20,7 +20,7 @@
 }
 
 .all-filters-section h2 {
-  font-family: 'Fredoka One', cursive;
+  font-family: Fredoka One , cursive;
   font-size: 32px;
   margin: 20px;
   text-align: center;
