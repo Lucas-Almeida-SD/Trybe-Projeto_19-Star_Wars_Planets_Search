@@ -1,0 +1,102 @@
+.table-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 4px white;
+  padding: 24px;
+}
+
+.table-section h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  text-align: center;
+}
+
+.table-section h3 {
+  font-family: 'ABeeZee' , sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.table-section .table-div {
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 6px;
+  box-shadow: 0 0 8px black;
+  overflow-x: auto;
+  transform: rotateX(180deg);
+}
+
+.table-section .table-div::-webkit-scrollbar {
+  height: 12px;
+}
+
+
+.table-section .table-div::-webkit-scrollbar-track {
+  background: rgb(225, 229, 235);
+  border-radius: 8px;
+}
+
+.table-section .table-div::-webkit-scrollbar-thumb {
+  background-color: rgb(62, 66, 75);
+  border-radius: 8px;
+}
+
+.table-section .table-div table {
+  border-collapse: collapse;
+  border-radius: 6px;
+  text-align: center;
+  transform: rotateX(180deg);
+}
+
+table th {
+  background-color: black;
+  color: white;
+  font-family: 'ABeeZee' , sans-serif;
+  min-width: 150px;
+  padding: 8px;
+}
+
+table tbody tr:nth-child( even ) {
+  background-color: rgb(240, 240, 240);
+}
+
+table tbody td {
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  padding: 8px;
+}
+
+table tbody td:nth-child( 10 ), table tbody td:nth-child( 13 ) {
+  white-space: nowrap;
+}
+
+@media screen and ( max-width : 768px ) {
+
+  .table-section h2 {
+    font-size: 24px;
+  }
+
+  .table-section h3 {
+    font-size: 18px;
+  }
+
+  table th {
+    font-size: 14px;
+  }
+
+  table tbody td {
+    font-size: 12px;
+  }
+
+}
+
+@media screen and ( max-width : 480px ) {
+
+  .table-section h2 {
+    font-size: 20px;
+  }
+
+  .table-section h3 {
+    font-size: 16px;
+  }
+
+}

@@ -1,0 +1,61 @@
+.logo {
+  display: block;
+  margin: 80px auto;
+}
+
+.error-message {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 100;
+  margin: 80px;
+  text-align: center;
+}
+
+.all-filters-section {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 0 4px white;
+  margin-bottom: 48px;
+  margin-top: 24px;
+  padding: 8px 0;
+}
+
+.all-filters-section h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  margin: 20px;
+  text-align: center;
+}
+
+@media screen and ( max-width : 768px ) {
+
+  .logo {
+    width: 300px;
+  }
+
+  .error-message {
+    font-size: 24px;
+    margin: 40px;
+  }
+
+  .all-filters-section h2 {
+    font-size: 24px;
+  }
+
+}
+
+@media screen and ( max-width : 480px ) {
+
+  .logo {
+    width: 200px;
+  }
+
+  .error-message {
+    font-size: 20px;
+    margin: 40px;
+  }
+
+  .all-filters-section h2 {
+    font-size: 20px;
+  }
+
+}

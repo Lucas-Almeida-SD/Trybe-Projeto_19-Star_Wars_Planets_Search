@@ -1,0 +1,35 @@
+.name-filter-section {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.name-filter-section input {
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 4px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  outline: none;
+  padding: 8px;
+}
+
+.name-filter-section input:focus {
+  box-shadow: 0 0 2px 2px rgb(255, 57, 57);
+}
+
+@media screen and ( max-width : 768px ) {
+
+  .name-filter-section input {
+    font-size: 16px;
+  }
+
+}
+
+@media screen and ( max-width : 480px ) {
+
+  .name-filter-section input {
+    font-size: 14px;
+  }
+
+}

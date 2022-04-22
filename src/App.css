@@ -39,3 +39,53 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.root {
+  position: relative;
+  width: 100vw;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+}
+
+.background img {
+  width: 100%;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+}
+
+body {
+  background-image: url('./imgs/starwars-background.png');
+  background-size: cover;
+}
+
+main {
+  margin: 32px 88px;
+}
+
+@media screen and ( max-width : 768px ) {
+
+  main {
+    margin: 32px 48px;
+  }
+
+}
+
+@media screen and ( max-width : 480px ) {
+
+  main {
+    margin: 32px 24px;
+  }
+
+}

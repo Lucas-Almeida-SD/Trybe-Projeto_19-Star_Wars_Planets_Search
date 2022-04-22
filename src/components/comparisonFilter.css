@@ -1,0 +1,157 @@
+.comparison-filter-section {
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 4px black;
+  display: flex;
+  flex-direction: column;
+  margin: 24px;
+  padding: 24px 0;
+}
+
+.comparison-filter-section .comparison-filter-fields, .comparison-filters-div {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comparison-filter-fields div {
+  margin: 8px;
+}
+
+.comparison-filters-div {
+  margin-top: 16px;
+}
+
+.comparison-filter-fields div label {
+  font-family: 'Acme', sans-serif;
+  font-size: 18px;
+}
+
+.coluna-comparison select, .operador-comparison select {
+  background-color: white;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 4px;
+  margin: 4px 0;
+  outline: none;
+  padding: 8px;
+}
+
+.comparison-filter-fields div select, .comparison-filter-fields div input {
+  font-family: 'Fuzzy Bubbles', cursive;
+  font-size: 16px;
+}
+
+.comparison-filter-fields .coluna-comparison, .operador-comparison {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.coluna-comparison select:focus {
+  box-shadow: 0 0 2px 2px rgb(46, 181, 234);
+}
+
+.operador-comparison select:focus {
+  box-shadow: 0 0 2px 2px rgb(158, 76, 205);
+}
+
+.comparison-filter-fields .value-input {
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 4px;
+  outline: none;
+  padding: 8px;
+  width: 100px;
+}
+
+.comparison-filter-fields .value-input:focus {
+  box-shadow: 0 0 2px 2px rgb(255, 152, 45);
+}
+
+.comparison-filter-fields .filter-btn, .remove-all-filters-btn {
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 4px black;
+  cursor: no-drop;
+  font-family: 'Acme', sans-serif;
+  font-size: 18px;
+  padding: 8px 24px;
+}
+
+.comparison-filter-fields .filter-btn:enabled {
+  background-color: rgb(47, 87, 255);
+  cursor: pointer;
+}
+
+.comparison-filter-fields .remove-all-filters-btn:enabled {
+  background-color: rgb(196, 44, 44);
+  cursor: pointer;
+}
+
+.comparison-filters-div .comparison-filter {
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 0 0 4px black;
+  display: flex;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  justify-content: center;
+  margin: 8px;
+  padding: 4px 8px;
+}
+
+.comparison-filter img {
+  cursor: pointer;
+  margin-left: 8px;
+  width: 28px;
+}
+
+@media screen and ( max-width : 768px ) {
+
+  .comparison-filter-fields div label {
+    font-size: 16px;
+  }
+
+  .comparison-filter-fields div select, .comparison-filter-fields div input {
+    font-size: 14px;
+  }
+
+  .comparison-filter-fields .filter-btn, .remove-all-filters-btn {
+    font-size: 16px;
+  }
+
+  .comparison-filters-div .comparison-filter {
+    font-size: 14px;
+  }
+
+  .comparison-filter img {
+    width: 26px;
+  }
+
+}
+
+@media screen and ( max-width : 480px ) {
+
+  .comparison-filter-fields div label {
+    font-size: 14px;
+  }
+
+  .comparison-filter-fields div select, .comparison-filter-fields div input {
+    font-size: 12px;
+  }
+
+  .comparison-filter-fields .filter-btn, .remove-all-filters-btn {
+    font-size: 14px;
+  }
+
+  .comparison-filters-div .comparison-filter {
+    font-size: 12px;
+  }
+
+  .comparison-filter img {
+    width: 24px;
+  }
+
+}

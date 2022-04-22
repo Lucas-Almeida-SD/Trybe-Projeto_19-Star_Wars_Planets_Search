@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import MyContext from '../context/MyContext';
+import NameFilter from './NameFilter';
+import formatName from '../helpers/formatName';
+import './table.css';
 
 function Table() {
   const { data, filteredData } = useContext(MyContext);
@@ -7,7 +10,7 @@ function Table() {
   const renderTHead = (columnsName) => (
     <thead>
       <tr>
-        {columnsName.map((e) => <th key={ e }>{e}</th>)}
+        {columnsName.map((e) => <th key={ e }>{formatName(e)}</th>)}
       </tr>
     </thead>
   );
@@ -42,16 +45,20 @@ function Table() {
     </tbody>
   );
 
-  if (data.length > 0) {
-    const columnsName = Object.keys(data[0]);
-    return (
-      <table border="1">
-        {renderTHead(columnsName)}
-        {renderTBody(columnsName)}
-      </table>
-    );
-  }
-  return null;
+  const columnsName = Object.keys(data[0]);
+  return (
+    <section className="table-section">
+      <h2>Planets Information</h2>
+      <NameFilter />
+      {(filteredData.length > 0) ? (
+        <div className="table-div">
+          <table border="1" className="table">
+            {renderTHead(columnsName)}
+            {renderTBody(columnsName)}
+          </table>
+        </div>) : <h3>Information not found</h3>}
+    </section>
+  );
 }
 
 export default Table;

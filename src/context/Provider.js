@@ -6,6 +6,8 @@ const PLANETS_URL = 'https://swapi-trybe.herokuapp.com/api/planets/';
 
 const Provider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
+  const [error, setError] = useState(false);
   const [filterByName, setFilterByName] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
@@ -24,21 +26,6 @@ const Provider = ({ children }) => {
     if (newNext < newPrev) { return negNumber1; }
     return 0;
   };
-
-  useEffect(() => {
-    const getPlanets = async () => {
-      const { results } = await fetch(PLANETS_URL)
-        .then((response) => response.json());
-      const newData = results.map((e) => {
-        delete e.residents;
-        return e;
-      });
-      newData.sort((next, prev) => checkSort(next.name, prev.name));
-      setData(newData);
-    };
-    getPlanets();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const makeComparison = (e, index) => {
     const { column, comparison, value } = filterByNumericValues[index];
@@ -61,8 +48,30 @@ const Provider = ({ children }) => {
   };
 
   useEffect(() => {
+    const getPlanets = async () => {
+      setIsFetching(true);
+      const json = await fetch(PLANETS_URL)
+        .then((response) => response.json())
+        .catch(() => 'error');
+      if (json !== 'error') {
+        const { results } = json;
+        const newData = results.map((e) => {
+          delete e.residents;
+          return e;
+        });
+        newData.sort((next, prev) => checkSort(next.name, prev.name));
+        setData(newData);
+      } else { setError(true); }
+      setIsFetching(false);
+    };
+    getPlanets();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     const filterData = () => {
-      let newData = data.filter((e) => e.name.includes(filterByName));
+      let newData = data.filter((e) => (
+        e.name.toLowerCase().includes(filterByName.toLowerCase())));
       newData = filterByColumn(newData);
       return newData;
     };
@@ -72,15 +81,15 @@ const Provider = ({ children }) => {
 
   useEffect(() => {
     const sortData = () => {
-      const newFilteredData = filteredData.map((e) => e); // apenas um clone do filteredData
+      const newData = data.map((e) => e); // apenas um clone do filteredData
       const { column, sort } = order;
       if (sort === 'ASC') {
-        newFilteredData.sort((next, prev) => (
+        newData.sort((next, prev) => (
           checkSort(next[column], prev[column], true, true)));
       } else {
-        newFilteredData.sort((next, prev) => checkSort(prev[column], next[column], true));
+        newData.sort((next, prev) => checkSort(prev[column], next[column], true));
       }
-      setFilteredData(newFilteredData);
+      setData(newData);
     };
     if (order.column) {
       sortData();
@@ -90,6 +99,8 @@ const Provider = ({ children }) => {
 
   const contextValue = {
     data,
+    isFetching,
+    error,
     filteredData,
     filterByName,
     filterByNumericValues,
